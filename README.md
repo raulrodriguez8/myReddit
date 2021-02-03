@@ -1,4 +1,4 @@
-# SEIdit
+# myReddit
 
 myReddit is a basic online forum site that lets you subscribe to different forums, create posts, and comment on yours and others' posts
 
