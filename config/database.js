@@ -6,11 +6,15 @@ mongoose.connect(process.env.MONGODB_URI, {
     useCreateIndex: true,
     useFindAndModify: false,
   });
-// .then( () => console.log('MongoDB connection ESTABLISHED :)'))
-// .catch( (err) => console.log('MongoDB error', err))
+
+const db = mongoose.connection;
+
+db.on('connected', function () {
+  console.log(`Connected to MongoDB at ${db.host}:${db.port}`);
+});
 
 
-mongoose.connection.on( 'disconnected', (err) => console.log(err) );
+db.on( 'disconnected', (err) => console.log(err) );
 
 module.exports = {
     User: require('../models/User'),
