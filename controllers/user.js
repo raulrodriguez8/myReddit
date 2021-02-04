@@ -1,4 +1,4 @@
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 
 const db = require('../models');
 
@@ -9,22 +9,22 @@ const register = (req, res) => {
 
 const createUser = (req, res) => {
   console.log('before hash', req.body )
+  //look for user by e-mail address
   db.User.findOne( { email: req.body.email }, ( err, foundUser ) => {
-    
+    //error logic if user exists
     if ( err ) return console.log(err);
     
-    if ( foundUser ) return console.log('user exist');
-    
+    if ( foundUser ) return console.log('user exists');
+    //password authentication
     bcrypt.genSalt( 10, ( err, salt ) => {
       if ( err ) return console.log(err);
-      
+      //hash the password passed by the user
       bcrypt.hash( req.body.password, salt, ( err, hash ) => {
         if ( err ) return console.log(err);
-        
+        //assign password passed in to variable hash
         req.body.password = hash
         console.log('after hash', req.body )
-        
-        
+        //if no error, create user using the data pulled in from the form
         db.User.create( req.body, ( err, createdUser ) => {
           if ( err ) return console.log(err);
 

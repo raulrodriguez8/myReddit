@@ -1,36 +1,23 @@
-//EXTERNAL MODULES
-const express = require('express');
-const morgan = require('morgan');
+/* EXTERNAL MODULES */
+const express = require ('express');
 const methodOverride = require('method-override');
 const session = require('express-session');
-// const passport = require('passport');
 const MongoStore = require('connect-mongo')(session);
 
-//INTERNAL MODULES
-const routes = require('./routes');
+/* INTERNAL MODULES */
+const routes = require('./routes')
 
-// //implement .env variables
+/* PORT */
 require('dotenv').config()
-
-//.define port
-const port = 3000;
+const PORT = process.env.PORT;
 
 //create express app
-const app = express();
+const app = express()
 
 
-// //connect to database
-require('./config/database');
-// //connect to passport for oauth
-// require('./config/passport');
+/* APP CONFIG */
+app.set( 'view engine', 'ejs' );
 
-
-
-//connect routes
-
-
-//Set view engine to EJS
-app.set('view engine', 'ejs');
 /* Middleware */
 app.use( express.static('public'));
 
@@ -51,6 +38,7 @@ app.use( session({
   }) 
 );
 
+// find out what this does
 app.use( ( req, res, next ) => {
   console.log(`${req.method} ${req.originalUrl}`)
   next();
@@ -69,5 +57,5 @@ app.use( '/', routes.post ) ;
 // users routes 
 app.use('/users', routes.user );
 
-// app listing
-app.listen( PORT, () => console.log( `listing at port ${PORT} \nhttp://localhost:${PORT}`) );
+// app listening port
+app.listen( PORT, () => console.log( `listening on port ${PORT} \nhttp://localhost:${PORT}`) );
