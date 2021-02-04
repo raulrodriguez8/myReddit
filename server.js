@@ -9,7 +9,9 @@ const MongoStore = require('connect-mongo')(session);
 //.define port
 const port = 3000;
 
-//require external modules
+//create express app
+const app = express();
+
 //implement .env variables
 require('dotenv').config()
 //connect to database
@@ -19,9 +21,10 @@ require('./config/passport');
 
 
 
-//INTERNAL MODULES
+//connect routes
+const routes = require('./routes');
 
-const app = express();
+
 //Set view engine to EJS
 app.set('view engine', 'ejs');
 //initialize morgan
@@ -70,7 +73,7 @@ app.use( ( req, res, next)  => {
 
 // Home landing page (for testing) http://localhost:3000
 app.get( '/', ( req, res ) => {
-  res.send('<h1>SEIdit!</h1><a href="/users/login" >Log in to myReddit</a>');
+  res.send('<h1>myReddit!</h1><a href="/users/login" >Log in to myReddit</a>');
   });
 
 app.listen(port, () => {

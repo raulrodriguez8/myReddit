@@ -10,7 +10,20 @@ router.get('/auth/google', passport.authenticate(
 router.get('/oauth2callback', passport.authenticate(
 'google',
 {
-    successRedirect : '/students',
+    successRedirect : '/users',
     failureRedirect : '/'
 }
 ));
+
+router.get('/logout', function(req, res){
+    req.logout();
+    res.redirect('/');
+});
+
+router.get('/', function(req, res) {
+    res.render('index', {
+        user: req.user
+    });
+  });
+
+  module.exports = router;
