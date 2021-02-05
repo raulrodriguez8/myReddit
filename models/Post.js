@@ -2,22 +2,22 @@ const mongoose = require('mongoose');
 
 
 const postSchema = new mongoose.Schema({
-  img: {
+  title: {
     type: String,
-    required: true
+    required: true,
   },
-  caption: {
+  postUrl: {
     type: String,
-    required: true
+    required: true,
   },
   user: {
     type: mongoose.Types.ObjectId,
-    ref: 'User'
+    ref: 'User',
   },
-  likes: [{
+  subredditId: {
     type: mongoose.Types.ObjectId,
-    ref: 'User'
-  }]
+    ref: 'Subreddit',
+  }
 },
 {
   timestamps: true

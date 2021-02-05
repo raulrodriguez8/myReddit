@@ -9,14 +9,6 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  firstName: {
-    type: String,
-    required: true,
-  },
-  lastName: {
-    type: String,
-    required: true,
-  },
   password: {
     type: String,
     required: true,
@@ -29,14 +21,6 @@ const userSchema = new mongoose.Schema({
     type: mongoose.Types.ObjectId,
     ref: 'Post'
   }],
-  following: [{
-    type: mongoose.Types.ObjectId,
-    ref: 'User'
-  }],
-  followers: [{
-    type: mongoose.Types.ObjectId,
-    ref: 'User'
-  }]
 },
 {
   timestamps: true
@@ -45,3 +29,5 @@ const userSchema = new mongoose.Schema({
 const User = mongoose.model( 'User', userSchema );
 
 module.exports = User;
+
+//removed followers/following, firstname/lastname

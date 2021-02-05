@@ -18,4 +18,6 @@ mongoose.connection.on( 'disconnected', (err) => console.log(err) );
 module.exports = {
   User: require('./User'),
   Post: require('./Post'),
+  Subreddit: require('./Subreddit'),
+  Comment: require('./Comment'),
 }
