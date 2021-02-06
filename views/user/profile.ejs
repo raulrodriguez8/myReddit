@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <%- include('../components/_head/_head.ejs') %>
-   
+  <!-- partial for head -->
+  <%- include('../partials/_head/_head') %>
 <body>
-  <%- include('../components/_mainNav/_mainNav.ejs') %> 
+  <%- include('../partials/_mainNav/_navBar') %>
 
   <main>
 
@@ -27,9 +27,9 @@
           </div>
 
           <div>
-            <h1>posts <%= user.posts.length %> </h1>
-            <h1>followers <%= user.followers.length %> </h1>
-            <h1>following <%= user.following.length %> </h1>
+            <h1>posts <%= user.posts%> </h1>
+            <!-- <h1>followers <%= user.followers.length %> </h1>
+            <h1>following <%= user.following.length %> </h1> -->
           </div>
 
           <p><%= user.firstName %> <%= user.lastName %></p>

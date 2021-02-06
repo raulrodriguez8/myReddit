@@ -43,13 +43,19 @@
           <section class="card__footer">
             
             <div class="card__footer__reactions">
+              <div>
+              <p><%= post.comments%></p>
+              </div>
               <div class="card__footer__icons">
+               <h6><a href="/posts/<%= post._id %>/editpost">Edit post</a></h6>
+               
                 <!--ONCE I FINISH COMMENTS SYSTEM I CAN CIRCLE BACK TO BELOW AND use as example for upvote system-->
                  <!-- <i class="fas fa-heart"></i>
                 <i class="far fa-comment"></i>
                 <i class="far fa-paper-plane"></i> -->
               </div>
             </div>
+            
             
             <!-- <div class="card__footer__user--info">
               <p>in the future this will show updoots</p>

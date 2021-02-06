@@ -4,6 +4,7 @@ const index = ( req, res ) => {
   
   db.Post.find({})
   .populate('user')
+  // .populate('comments')
   .sort({ createdAt: -1 })
   .exec( ( err, posts ) => {
     if ( err ) return console.log(err)
@@ -12,7 +13,8 @@ const index = ( req, res ) => {
 
     const context = {
       posts,
-      currentUser: req.session.currentUser
+      currentUser: req.session.currentUser,
+      // comments,
     }
     
     res.render('feed/feed', context );
