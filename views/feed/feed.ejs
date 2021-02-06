@@ -7,7 +7,13 @@
   <%- include('../partials/_mainNav/_navBar') %>
   
   <main class="main">
-
+    <!-- <h5>Click Button </h5>
+    <a class="nav__menu--links" href="/addpost">
+      <i class="fas fa-plus-square"></i>
+    </a> -->
+    <div>
+    <a class="btn btn-primary" href="/addpost" role="button">Add a New Post</a>
+    </div>
     <div class="container">
       <% if (posts.length === 0 ) { %>
         <p>no posts yet</p>
@@ -24,10 +30,14 @@
           </header>
 
           <!-- card body -->
-          <section class="card__body">
-            <h1><%= post.title %></h1>
-            <p><a href="<%= post.user.link%>"><%= post.link %></a></p>
-          </section>
+          <div class="card">
+            <div class="card-body">
+              <p><a href="<%= post.link%>"><%= post.link %></a></p>
+              <p class="card-text"><%= post.text%></p>
+              <!-- <a href="#" class="btn btn-primary">Button</a> -->
+            </div>
+          </div>
+        
 
           <!-- card footer -->
           <section class="card__footer">
@@ -41,15 +51,15 @@
               </div>
             </div>
             
-            <div class="card__footer__user--info">
+            <!-- <div class="card__footer__user--info">
               <p>in the future this will show updoots</p>
             </div>
             <div class="card__footer__user--info">
               <p><%= post.user.username %></p>
-            </div>
+            </div> -->
 
             <section class="card__add__comment">
-              <form id="comment-form" action="">
+              <form id="comment-form" action="/newcomment">
                 <div class="inline-fields">
                   <input class="add-comment" type="text" placeholder="Add Comment...">
 
