@@ -16,11 +16,14 @@ const postSchema = new mongoose.Schema({
     type: Date,
     default: Date.now
   },
-  _creator: {
+  user: {
     type:  mongoose.Types.ObjectId,
     ref: 'User',
-  }
-
+  },
+  _comments: [{
+    type: mongoose.Types.ObjectId,
+    ref: 'Comment',
+  }],
 });
 
 

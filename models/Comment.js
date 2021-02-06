@@ -6,7 +6,7 @@ const commentSchema = new mongoose.Schema({
     type: mongoose.Types.ObjectId,
     ref: 'User',
   },
-  post: {
+  _post: {
     type: mongoose.Types.ObjectId,
     ref: 'Post',
   },
@@ -20,7 +20,7 @@ const commentSchema = new mongoose.Schema({
   },
   createdAt: {
     type: Date,
-    default: Date.now
+    default: Date.now,
   },
 });
 
