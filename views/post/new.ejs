@@ -1,8 +1,14 @@
 <h1>Add post</h1>
 
 <form action="/newpost" method="post">
-  <input type="text" name="img" placeholder="img">
-  <input type="text" name="caption" placeholder="caption">
-
+  <input type="text" name="title" placeholder="Post Title">
+  <input type="text" name="link" placeholder="Enter a post URL">
+  <input type="text" name="text" placeholder="Enter a post URL">
+  <select class="form-select" name="subreddit">
+    <option selected>Select a Subreddit to Post to</option>
+    <option value="technology">technology</option>
+    <option value="webdev">webdev</option>
+    <option value="webdevelopment">webdevelopment</option>
+  </select>
   <input type="submit" value="add post">
 </form>

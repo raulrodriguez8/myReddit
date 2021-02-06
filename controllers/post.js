@@ -14,7 +14,7 @@ const index = ( req, res ) => {
       posts,
       currentUser: req.session.currentUser
     }
-
+    
     res.render('feed/feed', context );
   })
 }

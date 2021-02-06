@@ -24,6 +24,10 @@ const postSchema = new mongoose.Schema({
     type: mongoose.Types.ObjectId,
     ref: 'Comment',
   }],
+  subreddits: {
+    type: mongoose.Types.ObjectId,
+    ref: 'Subreddit',
+  }
 });
 
 

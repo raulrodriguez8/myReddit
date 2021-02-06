@@ -10,10 +10,14 @@ const subredditSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  userCreated: {
+  user: {
     type: mongoose.Types.ObjectId,
     ref: 'User',
   },
+  posts: {
+    type: mongoose.Types.ObjectId,
+    ref: 'Post',
+  }
 },
 {
   timestamps: true
