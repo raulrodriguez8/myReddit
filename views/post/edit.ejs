@@ -1,7 +1,19 @@
-<form action="/post/<%= post._id %>/edit?_method=PUT" method="POST">
-    <input type="text" name="title" placeholder="title" value="<%= post.title %> ">
-    <input type="text" name="link" placeholder="link" value="<%= post.link %> ">
-    <input type="text" name="text" placeholder="text" value="<%= post.text %> ">
+<!DOCTYPE html>
+<html lang="en">
+
+  <!-- partial for head -->
+  <%- include('../partials/_head/_head') %>
+<body>
+  <%- include('../partials/_mainNav/_navBar') %>
+
+<form action="/<%= post._id %>/edit?_method=PUT" method="POST">
+    <input type="text" name="title" value="<%= post.title %> ">
+    <input type="text" name="link" value="<%= post.link %> ">
+    <input type="text" name="text" value="<%= post.text %> ">
   
     <input type="submit" value="edit post">
   </form>
+
+
+</body>
+</html>

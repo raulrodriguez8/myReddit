@@ -2,10 +2,14 @@
 const express = require ('express');
 const methodOverride = require('method-override');
 const session = require('express-session');
+// const passport = require('passport');
 const MongoStore = require('connect-mongo')(session);
 
 /* INTERNAL MODULES */
 const routes = require('./routes')
+
+
+// require('./config/passport');
 
 /* PORT */
 require('dotenv').config()
@@ -29,7 +33,7 @@ app.use( methodOverride('_method'));
 // for our session 
 app.use( session({
   store: new MongoStore({ url: process.env.MONGODB_URI }),
-  secret: process.env.SESSION_SECRET,
+  secret: 'raultest',
   resave: false,
   saveUninitialized: false,
   cookie: {
@@ -37,6 +41,10 @@ app.use( session({
     }
   }) 
 );
+
+//Passport
+// app.use(passport.initialize());
+// app.use(passport.session());
 
 // find out what this does
 app.use( ( req, res, next ) => {
