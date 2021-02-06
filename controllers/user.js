@@ -36,7 +36,7 @@ const createUser = (req, res) => {
   })
 }
 
-// presentational
+// function to send the request to the 
 const loginForm = ( req, res ) => {
   res.render('user/login')
 };
@@ -75,9 +75,9 @@ const show = ( req, res ) => {
   const _id = req.params.userId
   //find user in DB using the userId
   db.User.findById( _id )
-    //get all the posts from the Post schema
+    //get all the user's posts from the Post schema
     .populate('posts')
-    //if lookup fails, send error message
+    //callback 
     .exec((err, foundProfile) => {
       if (err) return res.status(500).json({
         status: 500,

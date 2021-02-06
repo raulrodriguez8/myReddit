@@ -2,21 +2,26 @@ const mongoose = require('mongoose');
 
 
 const commentSchema = new mongoose.Schema({
-  userId: {
+  _creator: {
     type: mongoose.Types.ObjectId,
     ref: 'User',
   },
-  postId: {
+  post: {
     type: mongoose.Types.ObjectId,
     ref: 'Post',
   },
   text: {
     type: String,
     required: true,
-  }
-},
-{
-  timestamps: true
+  },
+  isDeleted: {
+    type: Boolean,
+    default: false,
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now
+  },
 });
 
 

@@ -6,21 +6,21 @@ const postSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  postUrl: {
-    type: String,
-    required: true,
+  link: String,
+  text: String,
+  isDeleted: {
+    type: Boolean,
+    default: false,
   },
-  user: {
-    type: mongoose.Types.ObjectId,
+  createdAt: {
+    type: Date,
+    default: Date.now
+  },
+  _creator: {
+    type:  mongoose.Types.ObjectId,
     ref: 'User',
-  },
-  subredditId: {
-    type: mongoose.Types.ObjectId,
-    ref: 'Subreddit',
   }
-},
-{
-  timestamps: true
+
 });
 
 

@@ -23,9 +23,14 @@ const userSchema = new mongoose.Schema({
     type: mongoose.Types.ObjectId,
     ref: 'Post'
   }],
-},
-{
-  timestamps: true
+  isDeleted: {
+    type: Boolean,
+    default: false,
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now
+  },
 });
 
 const User = mongoose.model( 'User', userSchema );

@@ -2,21 +2,20 @@ const mongoose = require('mongoose');
 
 
 const voteSchema = new mongoose.Schema({
-  title: {
+  userId: {
     type: String,
     required: true,
   },
-  postUrl: {
+  postId: {
     type: String,
     required: true,
   },
-  user: {
+  commentId: {
     type: mongoose.Types.ObjectId,
-    ref: 'User',
+    ref: 'Comment',
   },
-  subredditId: {
-    type: mongoose.Types.ObjectId,
-    ref: 'Subreddit',
+  amount: {
+    type: Number, 
   }
 },
 {
